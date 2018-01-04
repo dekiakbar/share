@@ -110,41 +110,65 @@
 	    	</div>
 	    	<div class="ten wide column">
 	    		<div class="ui piled raised segment">
-	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat.
+	    			<h3 class="ui header">
+				        Judul
+				    	<span class="sub header">April 1, 2027 by <a href="#">Deki</a></span>
+				    </h3>
+				    <div class="ui divider"></div>
+				   	<p>
+				        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				   	</p>
+				    <blockquote>
+				      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				    </blockquote>
 	    		</div>
+
 	    		<div class="ui piled raised segment">
-	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat.
+	    			<h3 class="ui header">
+				        Judul
+				    	<span class="sub header">April 1, 2027 by <a href="#">Deki</a></span>
+				    </h3>
+				    <div class="ui divider"></div>
+				   	<p>
+				        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				   	</p>
+				    <blockquote>
+				      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				    </blockquote>
 	    		</div>
+
 	    		<div class="ui piled raised segment">
-	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat.
+	    			<h3 class="ui header">
+				        Judul
+				    	<span class="sub header">April 1, 2027 by <a href="#">Deki</a></span>
+				    </h3>
+				    <div class="ui divider"></div>
+				   	<p>
+				        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				   	</p>
+				    <blockquote>
+				      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				    </blockquote>
 	    		</div>
+
 	    	</div>
 	    	<div class="three wide column">
 				<div class="ui segment">
@@ -158,7 +182,9 @@
 		<div class="ui segment center aligned">
 			<p>&copy;{!! date('Y') !!} 
 				<a href="https://dekiakbar.com">Dekiakbar.com</a> | Made With :
-				<a href="https://Laravel.com">Laravel <i class="large pink heartbeat icon"></i></a>
+				<a href="https://Laravel.com">Laravel</a>
+				<i class="large pink heartbeat icon"></i>
+				<a href="https://Semantic-ui.com">Semantic</a>
 			</p>
 		</div>
 	</footer>
