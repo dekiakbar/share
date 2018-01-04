@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- 
+	Template Designed by Deki Akbar | Made With : Semantic-UI 
+ -->
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -20,13 +23,13 @@
 		</a>
 		<div class="right menu">
 			<a class="ui item">
-		    	<i class="large github icon"></i>
+		    	<i class="large github square icon"></i>
 			</a>
 			<a class="ui item">
 		    	<i class="blue large facebook icon"></i>
 			</a>
 			<a class="ui item">
-		    	<i class="teal large twitter icon"></i>
+		    	<i class="teal large twitter square icon"></i>
 			</a>
 			<a class="ui item">
 		    	<i class="purple large instagram icon"></i>
@@ -46,27 +49,68 @@
 	<div class="main content">
 	    <div class="ui column stackable grid">
 	    	<div class="three wide column">
-			    <div class="ui segment">
+			    <div class="ui segment blue">
+			    	<h4 class="ui horizontal divider header">
+					  Filter
+					</h4>
+			    	<div class="ui icon input" style="max-width: 200px;">
+						<input placeholder="Cari" type="text">
+						<i class="circular search link icon"></i>
+					</div>
+					<br>
+					<br>
 			    	<div class="ui accordion">
+						<a class="title">
+							<i class="dropdown icon"></i>
+							<b>Kategori</b>
+						</a>
+						<div class="content menu">
+							<div class="ui transition hidden">
+							    <ul class="ui list" style="margin-left: 30px;">
+								      <li><a class="item" href="#">Linux</a></li>
+								      <li><a href="#">Elektronika</a></li>
+								      <li><a href="#">Pemrograman</a></li>
+								</ul>
+							</div>
+						</div>
+
 						<div class="title">
 							<i class="dropdown icon"></i>
-							Kategori
+							<b>Tag</b>
 						</div>
 						<div class="content">
-							<p class="transition hidden">Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-						</div>
-						<div class="title">
-						  <i class="dropdown icon"></i>
-						  Tag
-						</div>
-						<div class="content">
-						  <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament.</p>
+						  <div class="ui transition hidden">
+							    <ul class="ui list" style="margin-left: 30px;">
+								      <li><a href="#">Linux</a></li>
+								      <li><a href="#">Ubuntu</a></li>
+								      <li><a href="#">Debian</a></li>
+								      <li><a href="#">PHP</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 			    </div>
+			    <div class="ui segment blue center aligned">
+			    	<h4 class="ui horizontal divider header">
+					  Share
+					</h4>
+			    	<a href="#" class="ui twitter">
+					  <i class="big twitter teal icon"></i>
+					</a>
+					<a href="#" class="ui linkedin">
+					  <i class="big linkedin icon"></i>
+					</a>
+					<a href="#" class="ui facebook">
+					  <i class="big facebook f blue icon"></i>
+					</a>
+					<a href="#" class="ui google">
+					  <i class="big google plus red icon"></i>
+					</a>
+			    </div>
 	    	</div>
 	    	<div class="ten wide column">
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	    		<div class="ui piled raised segment">
+	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -76,7 +120,9 @@
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	    		consequat.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	    		</div>
+	    		<div class="ui piled raised segment">
+	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -84,7 +130,11 @@
 	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	    		consequat.
+	    		</div>
+	    		<div class="ui piled raised segment">
+	    			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -92,30 +142,9 @@
 	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	    		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	    		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	    		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	    		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	    		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	    		consequat.
+	    		</div>
 	    	</div>
 	    	<div class="three wide column">
 				<div class="ui segment">
@@ -124,6 +153,7 @@
 	    	</div>
 	    </div>
 	</div>
+	<br>
 	<footer>
 		<div class="ui segment center aligned">
 			<p>&copy;{!! date('Y') !!} 
@@ -138,7 +168,7 @@
 		$('.ui.accordion')
 		  .accordion({
 		    selector: {
-		      trigger: '.title .icon'
+		      trigger: '.title'
 		    }
 		  })
 		;
