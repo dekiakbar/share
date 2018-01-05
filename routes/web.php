@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('blog.master');
+    return view('blog.index');
 });
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/blog','Blog@index');
