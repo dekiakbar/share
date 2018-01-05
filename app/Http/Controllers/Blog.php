@@ -8,6 +8,8 @@ use App\posts;
 use App\kategoris;
 use App\tag;
 
+use Chencha\Share\ShareFacade as Share;
+
 class Blog extends Controller
 {
     public function index(){
@@ -15,6 +17,10 @@ class Blog extends Controller
     	$tags 		= tag::all();
     	$posts 		= posts::all();
     	$kategoris 	= kategoris::all();
-    	return view('blog.index',compact('posts','kategoris','baru','tags'));
+
+    	$bagikan 	= Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
+    	$bagikan	= (object) $bagikan;
+    		
+    	return view('blog.index',compact('posts','kategoris','baru','tags','bagikan'));
     }
 }

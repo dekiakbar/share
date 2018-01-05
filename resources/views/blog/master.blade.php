@@ -99,16 +99,16 @@
 			    	<h4 class="ui horizontal divider header">
 					  Bagikan
 					</h4>
-			    	<a href="{!! setting('blog.share_twitter') !!}" class="ui twitter">
+			    	<a href="{{ $bagikan->twitter }}" class="ui twitter">
 					  <i class="big twitter teal icon"></i>
 					</a>
-					<a href="{!! setting('blog.share_linkedin') !!}" class="ui linkedin">
+					<a href="{{ $bagikan->linkedin }}" class="ui linkedin">
 					  <i class="big linkedin icon"></i>
 					</a>
-					<a href="{!! setting('blog.share_fb') !!}" class="ui facebook">
+					<a href="{{ $bagikan->facebook }}" class="ui facebook">
 					  <i class="big facebook f blue icon"></i>
 					</a>
-					<a href="{!! setting('blog.share_google') !!}" class="ui google">
+					<a href="{{ $bagikan->gplus }}" class="ui google">
 					  <i class="big google plus red icon"></i>
 					</a>
 			    </div>
