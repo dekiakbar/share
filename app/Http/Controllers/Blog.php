@@ -12,15 +12,19 @@ use Chencha\Share\ShareFacade as Share;
 
 class Blog extends Controller
 {
-    public function index(){
+    public function index(Request $request){
     	$baru	 	= posts::orderBy('created_at', 'asc')->first();
     	$tags 		= tag::all();
-    	$posts 		= posts::all();
+    	$posts 		= posts::paginate(3);
     	$kategoris 	= kategoris::all();
 
     	$bagikan 	= Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
     	$bagikan	= (object) $bagikan;
-    		
-    	return view('blog.index',compact('posts','kategoris','baru','tags','bagikan'));
+
+    	return view('blog.index',compact('posts','kategoris','baru','tags','bagikan'))->with('no',($request->input('page',1)-1)*3);
+    }
+
+    public function cari(){
+
     }
 }

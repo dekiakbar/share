@@ -37,4 +37,7 @@
 			@endforeach
 		</div>
 	@endforeach
-@endsection	    	
+	<div class="ui container center aligned">
+		{{ $posts->appends(\Request::except('page'))->links('blog.paginate') }}
+	</div> 
+@endsection	
