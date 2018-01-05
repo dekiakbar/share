@@ -21,7 +21,7 @@
 		    @endforeach
 		    <span>
 		    	<h3 class="ui header">
-				    <a href="#">{{ $post->title }}</a>
+				    <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
 				    <span class="sub header">{{ date_format($post->created_at,'h:m:s d-m-Y') }} by <a href="{{ $post->slug }}">Deki</a></span>
 				</h3>
 			</span>

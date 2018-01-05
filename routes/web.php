@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('blog.index');
-// });
+Route::get('/', function () {
+    return view('blog.index');
+});
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -21,8 +21,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/blog','Blog@index');
+Route::get('/blog/{slug}','Blog@detail');
 
-Route::get('/', function()
-{
-	return Share::load('http://www.example.com', 'My example')->twitter();
-});
+// Route::get('/', function()
+// {
+// 	return Share::load('http://www.example.com', 'My example')->twitter();
+// });

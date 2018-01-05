@@ -50,7 +50,7 @@
 	<div class="main content">
 	    <div class="ui column stackable grid">
 	    	<div class="three wide column">
-			    <div class="ui segment blue raised stacked">
+			    <div class="ui segment blue raised stacked tall">
 			    	<h4 class="ui horizontal divider header">
 					  Pencarian
 					</h4>
@@ -95,7 +95,7 @@
 						</div>
 					</div>
 			    </div>
-			    <div class="ui segment blue center aligned raised stacked">
+			    <div class="ui segment blue center aligned raised stacked tall">
 			    	<h4 class="ui horizontal divider header">
 					  Bagikan
 					</h4>
