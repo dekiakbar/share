@@ -13,10 +13,10 @@ use Chencha\Share\ShareFacade as Share;
 class Blog extends Controller
 {
     public function index(Request $request){
-    	$baru	 	= posts::orderBy('created_at', 'asc')->first();
+    	$baru	 	= posts::orderBy('created_at', 'desc')->first();
     	$tags 		= tag::all();
     	$kategoris 	= kategoris::all();
-    	$posts 		= posts::paginate(3);
+    	$posts 		= posts::orderBy('created_at', 'desc')->paginate(3);
     	
     	$bagikan 	= Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
     	$bagikan	= (object) $bagikan;
@@ -24,15 +24,41 @@ class Blog extends Controller
     	return view('blog.index',compact('posts','kategoris','baru','tags','bagikan'))->with('no',($request->input('page',1)-1)*3);
     }
 
+    public function kategori(Request $request,$kategori){
+        if ( !empty($kategori)) {
+        
+    	    $kategori 	= kategoris::where('slug','=',$kategori)->firstOrFail();
+    		$posts 		= posts::where('category_id','=',$kategori->id)->paginate(3);
+            $baru       = posts::orderBy('created_at', 'desc')->firstOrFail();
+    		$tags 		= tag::all();
+    		$kategoris 	= kategoris::all();
+    		
+    		$bagikan 	= Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
+    		$bagikan	= (object) $bagikan;
+	
+    		return view('blog.index',compact('posts','kategoris','baru','tags','bagikan'))
+    					->with('no',($request->input('page',1)-1)*3);
+
+    		return redirect('blog');
+        }else{
+            return abort(404);
+        }
+    }    
+
     public function detail($slug){
-    	$post		= posts::where('slug','=',$slug)->first();
-    	$baru	 	= posts::orderBy('created_at', 'asc')->first();
-    	$tags 		= tag::all();
-
-    	$kategoris 	= kategoris::all();
-    	$bagikan 	= Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
-    	$bagikan	= (object) $bagikan;
-
-    	return view('blog.detail',compact('post','kategoris','baru','tags','bagikan'));
+    	if (!empty($slug)) {
+            $post       = posts::where('slug','=',$slug)->firstOrFail();
+            $baru       = posts::orderBy('created_at', 'asc')->firstOrFail();
+            $tags       = tag::all();
+    
+            $kategoris  = kategoris::all();
+            $kategori   = kategoris::where('id',$post->category_id)->firstOrFail();
+            $bagikan    = Share::load('http://www.example.com', 'tentang link')->services('facebook','twitter','gplus','linkedin');
+            $bagikan    = (object) $bagikan;
+    
+            return view('blog.detail',compact('post','kategoris','baru','tags','bagikan','kategori'));
+        }else{
+            return abort(404);
+        }
     }
 }

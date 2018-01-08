@@ -8,13 +8,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<title>{!! setting('blog.title') !!} | {!! setting('site.title') !!}</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/highlight/styles/tomorrow-night-bright.css') }}">
 </head>
 <body>
 	<div class="ui secondary pointing menu">
 		<a class="item">Website</a>
 		<a class="item active teal">Blog</a>
 		<a class="item" onclick="tampil();">About</a>
-		<div class="right menu">
+		{{-- <div class="right menu">
 			<a href="{!! setting('blog.git_blog') !!}" class="ui item">
 		    	<i class="large github square icon"></i>
 			</a>
@@ -27,7 +28,7 @@
 			<a href="{!! setting('blog.ig_blog') !!}" class="ui item">
 		    	<i class="purple large instagram icon"></i>
 			</a>
-		</div>
+		</div> --}}
 	</div>
 
 	@yield('sayhi')
@@ -75,7 +76,9 @@
 							<div class="ui transition hidden">
 							    <ul class="ui list" style="margin-left: 30px;">
 							    	@foreach($kategoris as $kategori)
-								      <li><a class="item" href="#">{{ $kategori->name }}</a></li>
+								      <li>
+								    	<a href="/blog/kategori/{{ $kategori->slug }}" class="item" href="#">{{ $kategori->name }}</a>
+								      </li>
 									@endforeach
 								</ul>
 							</div>
@@ -99,16 +102,16 @@
 			    	<h4 class="ui horizontal divider header">
 					  Bagikan
 					</h4>
-			    	<a href="{{ $bagikan->twitter }}" class="ui twitter">
+			    	<a target="_blank" href="{{ $bagikan->twitter }}" class="ui twitter">
 					  <i class="big twitter teal icon"></i>
 					</a>
-					<a href="{{ $bagikan->linkedin }}" class="ui linkedin">
+					<a target="_blank" href="{{ $bagikan->linkedin }}" class="ui linkedin">
 					  <i class="big linkedin icon"></i>
 					</a>
-					<a href="{{ $bagikan->facebook }}" class="ui facebook">
+					<a target="_blank" href="{{ $bagikan->facebook }}" class="ui facebook">
 					  <i class="big facebook f blue icon"></i>
 					</a>
-					<a href="{{ $bagikan->gplus }}" class="ui google">
+					<a target="_blank" href="{{ $bagikan->gplus }}" class="ui google">
 					  <i class="big google plus red icon"></i>
 					</a>
 			    </div>
@@ -119,6 +122,30 @@
 	    	</div>
 
 			<div class="three wide column">
+				<div class="ui segment tall raised stacked teal center aligned">
+					<h4 class="ui horizontal divider header">
+						Kontak
+					</h4>
+					<a target="_blank" href="{!! setting('blog.git_blog') !!}" class="ui item">
+		    			<i class="large github square black icon"></i>
+					</a>
+					<a target="_blank" href="mailto:{!! setting('blog.email_blog') !!}" class="ui item">
+				    	<i class="violet large mail square icon"></i>
+					</a>
+					<a target="_blank" href="{!! setting('blog.linkedin_blog') !!}" class="ui item">
+				    	<i class="large linkedin square icon"></i>
+					</a>
+					<a target="_blank" href="{!! setting('blog.fb_blog') !!}" class="ui item">
+				    	<i class="blue large facebook icon"></i>
+					</a>
+					<a target="_blank" href="{!! setting('blog.twitter_blog') !!}" class="ui item">
+				    	<i class="teal large twitter square icon"></i>
+					</a>
+					<a target="_blank" href="{!! setting('blog.ig_blog') !!}" class="ui item">
+				    	<i class="purple large instagram icon"></i>
+					</a>
+				</div>
+
 				<div class="ui segment tall stacked raised teal">
 				  <h4 class="ui horizontal divider header">
 				  	Arsip
@@ -145,13 +172,10 @@
 						<div class="event">
 						    <div class="content">
 						      	<div class="summary">
-						        	<a>{{ $baru->title }}</a>
+						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
 						      	</div>
-						      	<div class="extra text" style="white-space: nowrap;text-overflow: ellipsis; overflow: hidden;">
-						        	
-						      	</div>
-						      	<div class="date">
-						        	{{ date_format($baru->created_at,'h:m:s d-m-Y') }}
+						      	<div class="date" style="margin-top: 3px;">
+						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
 						      	</div>
 						    </div>
 						</div>
@@ -166,14 +190,15 @@
 		<div class="ui segment center aligned">
 			<p>&copy;{!! date('Y') !!} 
 				<a href="https://dekiakbar.com">Dekiakbar.com</a> | Made With :
-				<a href="https://Laravel.com">Laravel</a>
+				<a target="_blank" href="https://Laravel.com">Laravel</a>
 				<i class="large pink heartbeat icon"></i>
-				<a href="https://Semantic-ui.com">Semantic</a>
+				<a target="_blank" href="https://Semantic-ui.com">Semantic</a>
 			</p>
 		</div>
 	</footer>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
+	<script type="text/javascript" src="https://semantic-ui.com/javascript/library/highlight.min.js"></script>
 	<script type="text/javascript">
 		$('.ui.accordion').accordion({
 		    selector: {
@@ -189,6 +214,7 @@
 			}).
 			modal('show');
   		}
+  		hljs.initHighlightingOnLoad();
 	</script>
 </body>
 </html>
