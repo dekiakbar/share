@@ -17,7 +17,7 @@
 			    <div class="content">
 			      	<div class="date">
 			        	<p>{{ date_format($post->created_at,'h:m:s d-m-Y') }}
-			        		by <a href="{{ $post->slug }}">Deki</a>
+			        		by <a onclick="tampil();">Deki</a>
 			        	</p>
 			      	</div>
 			    </div>

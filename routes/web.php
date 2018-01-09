@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/blog','Blog@index');
 Route::get('/blog/{slug}','Blog@detail');
 Route::get('/blog/kategori/{kategori}','Blog@kategori');
+Route::get('/blog/tag/{tag}','Blog@tag');
 // Route::get('/', function()
 // {
 // 	return Share::load('http://www.example.com', 'My example')->twitter();

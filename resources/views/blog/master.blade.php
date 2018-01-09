@@ -15,20 +15,6 @@
 		<a class="item">Website</a>
 		<a class="item active teal">Blog</a>
 		<a class="item" onclick="tampil();">About</a>
-		{{-- <div class="right menu">
-			<a href="{!! setting('blog.git_blog') !!}" class="ui item">
-		    	<i class="large github square icon"></i>
-			</a>
-			<a href="{!! setting('blog.fb_blog') !!}" class="ui item">
-		    	<i class="blue large facebook icon"></i>
-			</a>
-			<a href="{!! setting('blog.twitter_blog') !!}" class="ui item">
-		    	<i class="teal large twitter square icon"></i>
-			</a>
-			<a href="{!! setting('blog.ig_blog') !!}" class="ui item">
-		    	<i class="purple large instagram icon"></i>
-			</a>
-		</div> --}}
 	</div>
 
 	@yield('sayhi')
@@ -76,9 +62,11 @@
 							<div class="ui transition hidden">
 							    <ul class="ui list" style="margin-left: 30px;">
 							    	@foreach($kategoris as $kategori)
-								      <li>
-								    	<a href="/blog/kategori/{{ $kategori->slug }}" class="item" href="#">{{ $kategori->name }}</a>
-								      </li>
+								    	@if($kategori->parent_id == null)
+								    		<li>
+								    			<a href="/blog/kategori/{{ $kategori->slug }}" class="item" href="#">{{ $kategori->name }}</a>
+								      		</li>
+								    	@endif
 									@endforeach
 								</ul>
 							</div>
@@ -90,9 +78,9 @@
 						<div class="content">
 						  <div class="ui transition hidden">
 								<ul class="ui list" style="margin-left: 30px;">
-									@foreach($tags as $tag)
-										<li><a href="#">{{ $tag->name }}</a></li>
-									@endforeach	
+									@foreach($tags as $sub)
+										<li><a href="/blog/tag/{{ $sub->slug }}">{{ $sub->name }}</a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div>
@@ -113,6 +101,9 @@
 					</a>
 					<a target="_blank" href="{{ $bagikan->gplus }}" class="ui google">
 					  <i class="big google plus red icon"></i>
+					</a>
+					<a target="_blank" href="{{ $bagikan->telegram }}" class="ui google">
+					  <i class="big telegram icon"></i>
 					</a>
 			    </div>
 	    	</div>

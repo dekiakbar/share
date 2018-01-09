@@ -23,6 +23,7 @@ return [
         'tumblr' => [ 'uri' => 'http://www.tumblr.com/share', 'urlName' => 'u', 'titleName' => 't', 'extra' => [
             'v' => 3,
         ]],
+        'telegram' => ['uri' => 'https://t.me/share/url','urlName' => 'url'],
         'twitter' => [ 'uri' => 'https://twitter.com/intent/tweet', 'titleName' => 'text' ],
         'viadeo' => [ 'uri' => 'http://www.viadeo.com/' ],
         'vk' => [ 'uri' => 'http://vk.com/share.php', 'mediaName' => 'image', 'extra' => [
