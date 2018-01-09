@@ -1,5 +1,5 @@
 @extends('blog.master')
-
+@section('judul',' | '.$post->title)
 @section('isi')
 	<div class="ui segment raised piled purple">
 		<div class="ui breadcrumb">

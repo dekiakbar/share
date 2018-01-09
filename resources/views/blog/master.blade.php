@@ -6,13 +6,13 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<title>{!! setting('blog.title') !!} | {!! setting('site.title') !!}</title>
+	<title>{!! setting('blog.title') !!}@yield('judul')</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/highlight/styles/tomorrow-night-bright.css') }}">
 </head>
 <body>
 	<div class="ui secondary pointing menu">
-		<a class="item">Website</a>
+		<a href="https://dekiakbar.com" class="item">Website</a>
 		<a class="item active teal">Blog</a>
 		<a class="item" onclick="tampil();">About</a>
 	</div>
@@ -37,6 +37,23 @@
 	<div class="main content">
 	    <div class="ui column stackable grid">
 	    	<div class="three wide column">
+	    		<div class="ui segment tall raised stacked teal">
+					<h4 class="ui horizontal divider header">
+				  		Terbaru
+				  	</h4>
+					<div class="ui feed">
+						<div class="event">
+						    <div class="content">
+						      	<div class="summary">
+						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
+						      	</div>
+						      	<div class="date" style="margin-top: 3px;">
+						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
+						      	</div>
+						    </div>
+						</div>
+					</div>
+				</div>
 			    <div class="ui segment blue raised stacked tall">
 			    	<h4 class="ui horizontal divider header">
 					  Pencarian
@@ -45,7 +62,7 @@
 					<div class="ui center aligned grid">
 						<div class="ui search">
 							<div class="ui icon input" style="max-width: 200px;">
-								<input class="prompt" placeholder="Cari" type="text">
+								<input class="prompt" placeholder="Cari" type="text" name="cari">
 								<i class="search icon"></i>
 							</div>
 							<div class="results"></div>
@@ -64,7 +81,7 @@
 							    	@foreach($kategoris as $kategori)
 								    	@if($kategori->parent_id == null)
 								    		<li>
-								    			<a href="/blog/kategori/{{ $kategori->slug }}" class="item" href="#">{{ $kategori->name }}</a>
+								    			<a href="/blog/kategori/{{ $kategori->slug }}" class="item">{{ $kategori->name }}</a>
 								      		</li>
 								    	@endif
 									@endforeach
@@ -138,40 +155,47 @@
 				</div>
 
 				<div class="ui segment tall stacked raised teal">
-				  <h4 class="ui horizontal divider header">
-				  	Arsip
-				  </h4>
-				  	<div class="ui bulleted list">
-					  	<div class="item">Gaining Access</div>
-					  	<div class="item">Inviting Friends</div>
-					  	<div class="item">
-					    	<div>Benefits</div>
-					    	<div class="list">
-					      		<a class="item" href="#">Link to somewhere</a>
-					      		<div class="item">Rebates</div>
-					      		<div class="item">Discounts</div>
-					    	</div>
-					  	</div>
-					  	<div class="item">Warranty</div>
-					</div>
-				</div>
-				<div class="ui segment tall raised stacked teal">
 					<h4 class="ui horizontal divider header">
-				  		Terbaru
-				  	</h4>
-					<div class="ui feed">
-						<div class="event">
-						    <div class="content">
-						      	<div class="summary">
-						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
-						      	</div>
-						      	<div class="date" style="margin-top: 3px;">
-						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
-						      	</div>
-						    </div>
+						Arsip
+					</h4>
+					<div class="ui accordion">
+				{{-- 		<div class="title">
+							<i class="dropdown icon"></i>
+							<b>Januari</b>
 						</div>
-					</div>
-				</div>
+						<div class="content menu">
+							<div class="ui transition hidden">
+							    <ul class="ui list" style="margin-left: 30px;">
+									@foreach($semua as $semua)
+								  		@if($semua->created_at->month == 1)
+									  		<li>
+									  			<a href="{{ $semua->slug }}" class="item" href="#">{{ $semua->title }}</a>
+									  		</li>
+								  		@endif
+								  	@endforeach
+								</ul>
+							</div>
+						</div>
+						<div class="title">
+							<i class="dropdown icon"></i>
+							<b>Februari</b>
+						</div>
+						<div class="content menu">
+							<div class="ui transition hidden">
+							    <ul class="ui list" style="margin-left: 30px;">
+									@foreach($semua as $semua)
+								  		@if($semua->created_at->month == 2)
+									  		<li>
+									  			<a href="{{ $semua->slug }}" class="item" href="#">{{ $semua->title }}</a>
+									  		</li>
+								  		@endif
+								  	@endforeach
+								</ul>
+							</div>
+						</div> --}}
+						
+				  	</div>
+			    </div>
 	    	</div>
 
 	    </div>
@@ -206,6 +230,19 @@
 			modal('show');
   		}
   		hljs.initHighlightingOnLoad();
+
+  		$('.ui.search')
+		  .search({
+		    apiSettings: {
+		      	url: '/blog/cari/{query}'
+		    },
+		    fields: {
+      			results : 'items',
+      			title   : 'name',
+      			url     : 'html_url'
+    		},
+		  })
+		;
 	</script>
 </body>
 </html>

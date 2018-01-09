@@ -22,7 +22,7 @@
 		    <span>
 		    	<h3 class="ui header">
 				    <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
-				    <span class="sub header">{{ date_format($post->created_at,'h:m:s d-m-Y') }} by <a href="{{ $post->slug }}">Deki</a></span>
+				    <span class="sub header">{{ date_format($post->created_at,'h:m:s d-m-Y') }} by <a onclick="tampil();">Deki</a></span>
 				</h3>
 			</span>
 			<div class="ui divider"></div>
