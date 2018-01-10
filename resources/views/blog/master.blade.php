@@ -42,6 +42,7 @@
 				  		Terbaru
 				  	</h4>
 					<div class="ui feed">
+						@foreach($baru as $baru)
 						<div class="event">
 						    <div class="content">
 						      	<div class="summary">
@@ -52,6 +53,8 @@
 						      	</div>
 						    </div>
 						</div>
+						<div class="ui divider"></div>
+						@endforeach
 					</div>
 				</div>
 			    <div class="ui segment blue raised stacked tall">
@@ -103,26 +106,7 @@
 						</div>
 					</div>
 			    </div>
-			    <div class="ui segment blue center aligned raised stacked tall">
-			    	<h4 class="ui horizontal divider header">
-					  Bagikan
-					</h4>
-			    	<a target="_blank" href="{{ $bagikan->twitter }}" class="ui twitter">
-					  <i class="big twitter teal icon"></i>
-					</a>
-					<a target="_blank" href="{{ $bagikan->linkedin }}" class="ui linkedin">
-					  <i class="big linkedin icon"></i>
-					</a>
-					<a target="_blank" href="{{ $bagikan->facebook }}" class="ui facebook">
-					  <i class="big facebook f blue icon"></i>
-					</a>
-					<a target="_blank" href="{{ $bagikan->gplus }}" class="ui google">
-					  <i class="big google plus red icon"></i>
-					</a>
-					<a target="_blank" href="{{ $bagikan->telegram }}" class="ui google">
-					  <i class="big telegram icon"></i>
-					</a>
-			    </div>
+			    
 	    	</div>
 
 	    	<div class="ten wide column">
@@ -154,48 +138,64 @@
 					</a>
 				</div>
 
+				<div class="ui segment blue center aligned raised stacked tall">
+			    	<h4 class="ui horizontal divider header">
+					  Bagikan
+					</h4>
+			    	<a target="_blank" href="{{ $bagikan->twitter }}" class="ui twitter">
+					  <i class="big twitter teal icon"></i>
+					</a>
+					<a target="_blank" href="{{ $bagikan->linkedin }}" class="ui linkedin">
+					  <i class="big linkedin icon"></i>
+					</a>
+					<a target="_blank" href="{{ $bagikan->facebook }}" class="ui facebook">
+					  <i class="big facebook f blue icon"></i>
+					</a>
+					<a target="_blank" href="{{ $bagikan->gplus }}" class="ui google">
+					  <i class="big google plus red icon"></i>
+					</a>
+					<a target="_blank" href="{{ $bagikan->telegram }}" class="ui google">
+					  <i class="big telegram icon"></i>
+					</a>
+			    </div>
+
 				<div class="ui segment tall stacked raised teal">
 					<h4 class="ui horizontal divider header">
 						Arsip
 					</h4>
 					<div class="ui accordion">
-				{{-- 		<div class="title">
-							<i class="dropdown icon"></i>
-							<b>Januari</b>
-						</div>
-						<div class="content menu">
-							<div class="ui transition hidden">
-							    <ul class="ui list" style="margin-left: 30px;">
-									@foreach($semua as $semua)
-								  		@if($semua->created_at->month == 1)
-									  		<li>
-									  			<a href="{{ $semua->slug }}" class="item" href="#">{{ $semua->title }}</a>
-									  		</li>
-								  		@endif
-								  	@endforeach
-								</ul>
+						@foreach($arsip as $arsip)
+							<div class="title ">
+							    <i class="dropdown icon"></i>
+							    {{ $arsip->tahun }}
 							</div>
-						</div>
-						<div class="title">
-							<i class="dropdown icon"></i>
-							<b>Februari</b>
-						</div>
-						<div class="content menu">
-							<div class="ui transition hidden">
-							    <ul class="ui list" style="margin-left: 30px;">
-									@foreach($semua as $semua)
-								  		@if($semua->created_at->month == 2)
-									  		<li>
-									  			<a href="{{ $semua->slug }}" class="item" href="#">{{ $semua->title }}</a>
-									  		</li>
-								  		@endif
-								  	@endforeach
-								</ul>
+							<div class="content" style="margin-bottom: -10px;">
+							    <div class="accordion transition visible" style="display: block !important;margin-top: -15px;margin-left: 10px;">
+							    	@foreach($arsipBulan as $Bulan )
+								        @if($Bulan->tahun == $arsip->tahun)
+									        <div class="title " style="margin-bottom: -10px;">
+									        	<i class="dropdown icon"></i>
+									        	{{ $Bulan->bulan }}
+									        </div>
+									        <div class="content" style="margin-bottom: -10px;">
+									        	<ul class="ui list" style="margin-left: 30px;">
+									        		@foreach($arsipJudul as $Judul)
+									      				@if($Judul->tahun == $arsip->tahun && $Judul->bulan == $Bulan->bulan)
+									        				<li>
+									        					<a href="{{ $Judul->slug }}" style="margin-left: 3px;">{{ $Judul->title }}</a>
+									        				</li>
+									      				@endif
+									        		@endforeach
+									        	<ul class="ui list" style="margin-left: 30px;">
+									        </div>
+								      	@endif
+							    	@endforeach
+							    </div>
 							</div>
-						</div> --}}
-						
-				  	</div>
+						@endforeach
+					</div>
 			    </div>
+
 	    	</div>
 
 	    </div>
