@@ -60,18 +60,19 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="post" action="{{ route('kontak.store') }}">
+									{{ csrf_field() }}
 									<div class="field half first">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<label for="nama">Name</label>
+										<input type="text" name="nama" id="name" />
 									</div>
 									<div class="field half">
 										<label for="email">Email</label>
 										<input type="text" name="email" id="email" />
 									</div>
 									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
+										<label for="pesan">Message</label>
+										<textarea name="pesan" id="message" rows="4"></textarea>
 									</div>
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="special" /></li>
@@ -80,6 +81,16 @@
 								</form>
 							</article>
 					</div>
+
+					@if ($errors->any())
+					    <div class="alert alert-danger">
+					        <ul>
+					            @foreach ($errors->all() as $error)
+					                <li>{{ $error }}</li>
+					            @endforeach
+					        </ul>
+					    </div>
+					@endif
 
 				<!-- Footer -->
 					<footer id="footer">
