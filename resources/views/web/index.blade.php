@@ -46,14 +46,14 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">{!! setting('site.intro_title') !!}</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<span class="image main"><img src="storage/{!! setting('site.intro_image') !!}" alt="" /></span>
 								<p>{!! setting('site.intro_desc') !!}
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">{!! setting('site.about_title') !!}</h2>
-								<span class="image main"><img src="{!! setting('site.about_Image') !!}" alt="" /></span>
+								<span class="image main"><img src="storage/{!! setting('site.about_Image') !!}" alt="" /></span>
 								<p>{!! setting('site.about_desc') !!}</p>
 							</article>
 

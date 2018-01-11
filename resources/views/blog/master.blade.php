@@ -37,38 +37,21 @@
 	<div class="main content">
 	    <div class="ui column stackable grid">
 	    	<div class="three wide column">
-	    		<div class="ui segment tall raised stacked teal">
-					<h4 class="ui horizontal divider header">
-				  		Terbaru
-				  	</h4>
-					<div class="ui feed">
-						@foreach($baru as $baru)
-						<div class="event">
-						    <div class="content">
-						      	<div class="summary">
-						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
-						      	</div>
-						      	<div class="date" style="margin-top: 3px;">
-						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
-						      	</div>
-						    </div>
-						</div>
-						<div class="ui divider"></div>
-						@endforeach
-					</div>
-				</div>
-			    <div class="ui segment blue raised stacked tall">
+
+	    		 <div class="ui segment blue raised stacked tall">
 			    	<h4 class="ui horizontal divider header">
 					  Pencarian
 					</h4>
 					<br>
 					<div class="ui center aligned grid">
 						<div class="ui search">
-							<div class="ui icon input" style="max-width: 200px;">
-								<input class="prompt" placeholder="Cari" type="text" name="cari">
-								<i class="search icon"></i>
-							</div>
-							<div class="results"></div>
+							<form method="post" action="{{ url('/blog') }}">
+								{{ csrf_field() }}
+								<div class="ui icon input" style="max-width: 200px;">
+									<input class="prompt" placeholder="Cari" type="text" name="cari">
+									<i class="search icon"></i>
+								</div>
+							</form>
 						</div>
 					</div>
 					<br>
@@ -106,6 +89,27 @@
 						</div>
 					</div>
 			    </div>
+
+	    		<div class="ui segment tall raised stacked blue">
+					<h4 class="ui horizontal divider header">
+				  		Terbaru
+				  	</h4>
+					<div class="ui feed">
+						@foreach($baru as $baru)
+						<div class="event">
+						    <div class="content">
+						      	<div class="summary">
+						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
+						      	</div>
+						      	<div class="date" style="margin-top: 3px;">
+						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
+						      	</div>
+						    </div>
+						</div>
+						<div class="ui divider"></div>
+						@endforeach
+					</div>
+				</div>
 			    
 	    	</div>
 
@@ -138,7 +142,7 @@
 					</a>
 				</div>
 
-				<div class="ui segment blue center aligned raised stacked tall">
+				<div class="ui segment teal center aligned raised stacked tall">
 			    	<h4 class="ui horizontal divider header">
 					  Bagikan
 					</h4>
@@ -182,7 +186,7 @@
 									        		@foreach($arsipJudul as $Judul)
 									      				@if($Judul->tahun == $arsip->tahun && $Judul->bulan == $Bulan->bulan)
 									        				<li>
-									        					<a href="{{ $Judul->slug }}" style="margin-left: 3px;">{{ $Judul->title }}</a>
+									        					<a href="/blog/{{ $Judul->slug }}" style="margin-left: 3px;">{{ $Judul->title }}</a>
 									        				</li>
 									      				@endif
 									        		@endforeach
@@ -231,18 +235,17 @@
   		}
   		hljs.initHighlightingOnLoad();
 
-  		$('.ui.search')
-		  .search({
-		    apiSettings: {
-		      	url: '/blog/cari/{query}'
-		    },
-		    fields: {
-      			results : 'items',
-      			title   : 'name',
-      			url     : 'html_url'
-    		},
-		  })
-		;
+  // 		$('.ui.search')
+		//   .search({
+		//     apiSettings: {
+		//       	url: '/blog/cari/{query}'
+		//     },
+		//     fields: {
+  //     			results : 'results',
+  //     			title : 'title',
+  //   		},
+		//   })
+		// ;
 	</script>
 </body>
 </html>

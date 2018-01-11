@@ -24,4 +24,4 @@ Route::get('/blog','Blog@index');
 Route::get('/blog/{slug}','Blog@detail');
 Route::get('/blog/kategori/{kategori}','Blog@kategori');
 Route::get('/blog/tag/{tag}','Blog@tag');
-Route::get('/blog/cari/{cari}','Blog@cari');
+Route::post('/blog','Blog@cari');

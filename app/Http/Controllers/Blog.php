@@ -134,23 +134,36 @@ class Blog extends Controller
         }
     }
 
-    public function cari(Request $request,$cari){
-        if (!empty($cari)) {
-            $posts = posts::whereHas('kategori', function($query) use($cari) {
-                            $query->where('name', 'like', '%'.$cari.'%');
-                        })->orWhereHas('tag', function($query) use($cari) {
-                            $query->where('name', 'like', '%'.$cari.'%');
-                        })
-                     ->orWhere("title", "LIKE","%$cari%")->paginate(3);
+    public function cari(Request $request){
+        if (!empty($request->input('cari'))) {
+            
+            $cari       = $request->input('cari');
+            $posts      = posts::select('slug','title','created_at','tag_id','category_id')
+                          ->whereHas('kategori', function($query) use($cari) {$query->where('name', 'like', '%'.$cari.'%');})
+                          ->orWhereHas('tag', function($query) use($cari) {$query->where('name', 'like', '%'.$cari.'%');})
+                          ->orWhere("title", "LIKE","%$cari%")->paginate(3);
+
+            $arsip      = posts::orderBy('tahun','desc')
+                          ->select(DB::raw('YEAR(posts.created_at) tahun'))
+                          ->groupBy('tahun')->get();
+        
+            $arsipBulan = posts::orderBy('tahun','desc')
+                          ->select(DB::raw('MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
+                          ->groupBy('bulan','tahun')->get();
+
+            $arsipJudul = posts::orderBy('tahun','desc')
+                          ->select(DB::raw('title,slug,MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
+                          ->groupBy('bulan','tahun','title','slug')->get();
             
             $baru       = posts::latest()->take(3)->get();
             $tags       = tag::all();
             $kategoris  = kategoris::all();
             $bagikan    = Share::load('http://www.example.com', 'tentang link')
                           ->services('facebook','twitter','gplus','linkedin','telegram');
+
             $bagikan    = (object) $bagikan;
 
-            return view('blog.index',compact('posts','kategoris','baru','tags','bagikan','arsip'))
+            return view('blog.index',compact('posts','kategoris','baru','tags','bagikan','arsip','arsipBulan','arsipJudul'))
                         ->with('no',($request->input('page',1)-1)*3);
         }
     }
