@@ -26,8 +26,8 @@
 	    	{!! setting('blog.about_title') !!}
 		</div>
 		<div class="image content">
-			<img class="images" src="storage/{!! setting('site.bg') !!}">
-	    	<div class="description">
+			<img class="images" src="{!! asset('storage') !!}/{!! setting('blog.about_photo') !!}">
+	    	<div class="description" style="margin-left: 10px;">
 				{!! setting('blog.about_desc') !!}
 	    	</div>
 		</div>
@@ -45,15 +45,15 @@
 					</h4>
 					<br>
 					<div class="ui center aligned grid">
-						<div class="ui search">
-							<form method="post" action="{{ url('/blog') }}">
+							<form method="post" action="{{ url('/blog') }}" class="ui form">
 								{{ csrf_field() }}
 								<div class="ui icon input" style="max-width: 200px;">
 									<input class="prompt" placeholder="Cari" type="text" name="cari">
 									<i class="search icon"></i>
 								</div>
+								<div class="ui error message pointing basic label" style="padding: 5px !important;">
+								</div>
 							</form>
-						</div>
 					</div>
 					<br>
 					<br>
@@ -191,7 +191,7 @@
 									        				</li>
 									      				@endif
 									        		@endforeach
-									        	<ul class="ui list" style="margin-left: 30px;">
+									        	</ul>
 									        </div>
 								      	@endif
 							    	@endforeach
@@ -226,6 +226,21 @@
 		    }
 		});
 
+		this.$('.ui.form')
+		  .form({
+		    fields: {
+		      cari: {
+		        identifier: 'cari',
+		        rules: [
+		          {
+		            type   : 'regExp[/^[a-z0-9_-]{1,16}$/]',
+		            prompt : 'Form harus berisi huruf'
+		          }
+		        ]
+		      }
+			}
+		});
+
 		function tampil(){
 			$('.ui.longer.modal').
 			modal({
@@ -235,18 +250,6 @@
 			modal('show');
   		}
   		hljs.initHighlightingOnLoad();
-
-  // 		$('.ui.search')
-		//   .search({
-		//     apiSettings: {
-		//       	url: '/blog/cari/{query}'
-		//     },
-		//     fields: {
-  //     			results : 'results',
-  //     			title : 'title',
-  //   		},
-		//   })
-		// ;
 	</script>
 </body>
 </html>

@@ -24,8 +24,8 @@
 			</div>
 		</div>
 		<div class="ui divider"></div>
-		@if($kategori->id == $post->category_id)
-		<a href="/blog/kategori/{{ $kategori->slug }}" class="ui mini teal tag label">{{ $kategori->name }}</a>
+		@if($tag->id == $post->tag_id)
+		<a href="/blog/tag/{{ $tag->slug }}" class="ui mini teal tag label">{{ $tag->name }}</a>
 		@endif
 		<div class="ui divider"></div>
 			{!! $post->body !!}
