@@ -13,6 +13,17 @@
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={!! setting('site.google_analytics_tracking_id') !!}"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '{!! setting('site.google_analytics_tracking_id') !!}');
+		</script>
+
 	</head>
 	<body>
 

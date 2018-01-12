@@ -107,7 +107,7 @@
 
 	var term = $('.content').terminal(function(command) {
 	    if (command == 'bantuan') {
-	        this.echo("Ketik 'bantuan' untuk menampilakn pesan ini\nKetik 'kembali' untuk kembali ke menu");
+	        this.echo("-Ketik 'bantuan' untuk menampilakn pesan ini\n-Ketik 'kembali' untuk kembali ke website");
 	    }else if(command == 'kembali'){
 	    	window.location.href = 'https://dekiakbar.com';
 	    }else {
@@ -116,7 +116,7 @@
 	},
 	{
 	    prompt: 'root@linux:~# ',
-	    greetings: '404|Not Found\nMohon maaf atas ketidak nyamanan ini\nSaya yakin ini hanya kesalahan sistem\nKetik "help" untuk menampilakn bantuan\nKetik "kembali" untuk kembali ke menu',
+	    greetings: '404|Not Found\nMohon maaf atas ketidak nyamanan ini\nSaya yakin ini hanya kesalahan sistem\nKetik "bantuan" untuk menampilkan bantuan\nKetik "kembali" untuk kembali ke website',
 	});
 	</script>
 </body>

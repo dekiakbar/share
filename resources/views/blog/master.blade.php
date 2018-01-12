@@ -10,6 +10,15 @@
 	<title>{!! setting('blog.title') !!}@yield('judul')</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/highlight/styles/tomorrow-night-bright.css') }}">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={!! setting('site.google_analytics_tracking_id') !!}"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '{!! setting('site.google_analytics_tracking_id') !!}');
+	</script>
 </head>
 <body>
 	<div class="ui secondary pointing menu">
