@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<title>{!! setting('site.title') !!}</title>
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
@@ -60,7 +61,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="{{ route('kontak.store') }}">
+								<form method="post" action="">
 									{{ csrf_field() }}
 									<div class="field half first">
 										<label for="nama">Name</label>
@@ -81,16 +82,6 @@
 								</form>
 							</article>
 					</div>
-
-					@if ($errors->any())
-					    <div class="alert alert-danger">
-					        <ul>
-					            @foreach ($errors->all() as $error)
-					                <li>{{ $error }}</li>
-					            @endforeach
-					        </ul>
-					    </div>
-					@endif
 
 				<!-- Footer -->
 					<footer id="footer">

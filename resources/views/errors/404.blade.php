@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>404 | Not Found</title>
 	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}"> --}}
-
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link href="{{ asset('css/jquery.terminal-1.11.3.min.css') }}" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/shell.js@1.0.5/dist/css/shell.min.css">
 	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">

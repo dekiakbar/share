@@ -5,6 +5,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<title>{!! setting('blog.title') !!}@yield('judul')</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
