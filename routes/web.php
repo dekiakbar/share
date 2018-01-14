@@ -26,4 +26,4 @@ Route::get('/blog/kategori/{kategori}','Blog@kategori');
 Route::get('/blog/tag/{tag}','Blog@tag');
 Route::post('/blog','Blog@cari');
 
-Route::post('/kirim','Email@kirim')->name('email.kirim');
+Route::post('/kirim','Email@kirim');

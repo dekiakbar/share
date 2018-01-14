@@ -34,7 +34,7 @@
 	    	{!! setting('blog.about_title') !!}
 		</div>
 		<div class="image content">
-			<img class="images" src="{!! asset('storage') !!}/{!! setting('blog.about_photo') !!}">
+			<img class="ui image" src="{!! asset('storage') !!}/{!! setting('blog.about_photo') !!}" style="max-height: 400px;">
 	    	<div class="description" style="margin-left: 10px;">
 				{!! setting('blog.about_desc') !!}
 	    	</div>
@@ -176,7 +176,7 @@
 					<h4 class="ui horizontal divider header">
 						Arsip
 					</h4>
-					<div class="ui accordion">
+					<div class="ui accordion" style="margin-bottom: 5px;">
 						@foreach($arsip as $arsip)
 							<div class="title ">
 							    <i class="dropdown icon"></i>

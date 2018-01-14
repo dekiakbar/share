@@ -92,6 +92,11 @@
 							      		@endforeach
 							      		</ul>
 							        @endif
+							        @if(session()->has('status'))
+							        	<ul>
+							        		<li>{!! session('status') !!}</li>
+							        	</ul>
+							        @endif
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="special" /></li>
 										<li><input type="reset" value="Reset" /></li>
@@ -104,22 +109,22 @@
 					<footer id="footer">
 						<ul class="icons">
 									<li>
-										<a href="{!! setting('site.twitter') !!}" class="icon fa-twitter">
+										<a target="_blank" href="{!! setting('site.twitter') !!}" class="icon fa-twitter">
 											<span class="label">Twitter</span>
 										</a>
 									</li>
 									<li>
-										<a href="{!! setting('site.fb') !!}" class="icon fa-facebook">
+										<a target="_blank" href="{!! setting('site.fb') !!}" class="icon fa-facebook">
 											<span class="label">Facebook</span>
 										</a>
 									</li>
 									<li>
-										<a href="{!! setting('site.ig') !!}" class="icon fa-instagram">
+										<a target="_blank" href="{!! setting('site.linkedin') !!}" class="icon fa-linkedin">
 											<span class="label">Instagram</span>
 										</a>
 									</li>
 									<li>
-										<a href="{!! setting('site.git') !!}" class="icon fa-github">
+										<a target="_blank" href="{!! setting('site.git') !!}" class="icon fa-github">
 											<span class="label">GitHub</span>
 										</a>
 									</li>
