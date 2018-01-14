@@ -44,10 +44,9 @@
 						<nav>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
-								<li><a href="http://blog.dekiakbar.com">Blog</a></li>
+								<li><a href="https://dekiakbar.com">Blog</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -72,7 +71,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="">
+								<form method="post" action="{{ url('/kirim') }}">
 									{{ csrf_field() }}
 									<div class="field half first">
 										<label for="nama">Name</label>
@@ -86,6 +85,13 @@
 										<label for="pesan">Message</label>
 										<textarea name="pesan" id="message" rows="4"></textarea>
 									</div>
+									@if($errors->any())
+										<ul>
+										@foreach($errors->all() as $error)
+											<li>{!! $error !!}</li>
+							      		@endforeach
+							      		</ul>
+							        @endif
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="special" /></li>
 										<li><input type="reset" value="Reset" /></li>
