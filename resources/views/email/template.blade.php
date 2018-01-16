@@ -4,6 +4,6 @@ Pengirim : {{ $kontak['nama'] }} <{{ $kontak['email'] }}>
 
 {{ $kontak['pesan'] }}
 
-Terima Kasih<br>
+Terima Kasih,<br>
 {{ config('app.name') }}
 @endcomponent

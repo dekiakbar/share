@@ -7,9 +7,12 @@
 <html>
 	<head>
 		<title>{!! setting('site.title') !!}</title>
+		<meta name="robots" content="noindex,nofollow">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content="{{ setting('site.about_desc') }}">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>

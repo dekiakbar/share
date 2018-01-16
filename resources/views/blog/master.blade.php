@@ -23,7 +23,7 @@
 	<div class="ui secondary pointing menu">
 		<a href="https://dekiakbar.com" class="item">Website</a>
 		<a class="item active teal">Blog</a>
-		<a class="item" onclick="tampil();">About</a>
+		<a class="item" onclick="tampil();">Tentang</a>
 	</div>
 
 	@yield('sayhi')

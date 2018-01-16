@@ -18,21 +18,13 @@ class EmailCon extends Controller
             'email' => $request->input('email')
         ];
 
-        // $kirim = Mail::send('email.kirim', ['nama' => $nama, 'pesan' => $pesan,'email' => $email], function ($message)
-        //         {
-        //             $message->to('dekiakbar1337@gmail.com');
-        //             $message->subject("Notifikasi Feedback");
-        //         });
+        $emailAdmin = setting('site.email');
 
-        $emailAdmin = 'dekiakbar1337@gmail.com';
-
-        Mail::to($emailAdmin)->send(new Email($kontak));
-
-        // if (!$kirim) {
-        //     $status = session()->flash('status','Pesan Terkirim, Terima Kasih');
-        // }else{
-        //     $status = session()->flash('status','Pesan Tidak Terkirim, Mohon Coba Lagi');
-        // }
+        if (!Mail::to($emailAdmin)->send(new Email($kontak))) {
+            $status = session()->flash('status','Pesan Terkirim, Terima Kasih');
+        }else{
+            $status = session()->flash('status','Pesan Tidak Terkirim, Mohon Coba Lagi');
+        }
         
         return redirect('/');
     }
