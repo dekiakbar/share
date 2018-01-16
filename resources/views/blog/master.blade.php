@@ -225,7 +225,6 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
 	<script type="text/javascript" src="https://semantic-ui.com/javascript/library/highlight.min.js"></script>
 	<script type="text/javascript">
 		$('.ui.accordion').accordion({
