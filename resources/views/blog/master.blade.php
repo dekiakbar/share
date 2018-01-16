@@ -4,12 +4,14 @@
 -->
 <html>
 <head>
-	<meta charset="utf-8" />
+	<title>{!! setting('blog.title') !!}@yield('judul')</title>
+	<meta name="robots" content="noindex,nofollow">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<title>{!! setting('blog.title') !!}@yield('judul')</title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/highlight/styles/tomorrow-night-bright.css') }}">
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id={!! setting('site.google_analytics_tracking_id') !!}"></script>
 	<script>
