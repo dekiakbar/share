@@ -29,7 +29,7 @@ class Blog extends Controller
                       ->select(DB::raw('title,slug,MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
                       ->groupBy('bulan','tahun','title','slug')->get();
 
-    	$bagikan 	   = Share::load('https://www.dekiakbar.com/blog', 'tentang link')
+    	$bagikan 	   = Share::load('https://dekiakbar.com/blog', setting('blog.quote'))
                       ->services('facebook','twitter','gplus','linkedin','telegram');
     	$bagikan     = (object) $bagikan;
 
@@ -56,7 +56,7 @@ class Blog extends Controller
                             ->select(DB::raw('title,slug,MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
                             ->groupBy('bulan','tahun','title','slug')->get();
         		
-        		$bagikan 	  = Share::load('https://www.dekiakbar.com/blog/kategori/'.$kategori->slug, 'tentang link')
+        		$bagikan 	  = Share::load('https://dekiakbar.com/blog/kategori/'.$kategori->slug, setting('blog.quote'))
                               ->services('facebook','twitter','gplus','linkedin','telegram');
         		$bagikan	  = (object) $bagikan;
     	
@@ -90,7 +90,7 @@ class Blog extends Controller
 
             $kategoris  = kategoris::all();
             $tag        = tag::where('id',$post->tag_id)->firstOrFail();
-            $bagikan    = Share::load('https://www.dekiakbar.com/blog/'.$post->slug, 'tentang link')
+            $bagikan    = Share::load('https://dekiakbar.com/blog/'.$post->slug, setting('blog.quote'))
                                 ->services('facebook','twitter','gplus','linkedin','telegram');
             $bagikan    = (object) $bagikan;
     
@@ -118,7 +118,7 @@ class Blog extends Controller
             $baru       = posts::latest()->take(3)->get();
             $tags       = tag::all();
             $kategoris  = kategoris::all();
-            $bagikan    = Share::load('https://www.dekiakbar.com/blog/tag/'.$tag->slug, 'tentang link')
+            $bagikan    = Share::load('https://dekiakbar.com/blog/tag/'.$tag->slug, setting('blog.quote'))
                                 ->services('facebook','twitter','gplus','linkedin','telegram');
             $bagikan    = (object) $bagikan;
     
@@ -154,7 +154,7 @@ class Blog extends Controller
             $baru       = posts::latest()->take(3)->get();
             $tags       = tag::all();
             $kategoris  = kategoris::all();
-            $bagikan    = Share::load('https://www.dekiakbar.com/blog', 'tentang link')
+            $bagikan    = Share::load('https://dekiakbar.com/blog', setting('blog.quote'))
                           ->services('facebook','twitter','gplus','linkedin','telegram');
 
             $bagikan    = (object) $bagikan;

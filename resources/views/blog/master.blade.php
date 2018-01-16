@@ -5,8 +5,15 @@
 <html>
 <head>
 	<title>{!! setting('blog.title') !!}@yield('judul')</title>
+	<meta charset="utf-8">
+	<meta name="copytight" content="dekiakbar.com is developed by Deki Akbar">
+	<meta name="keywords" content="@yield('key_meta')">
+	<meta name="description" content="@yield('isi_meta')">
 	<meta name="robots" content="noindex,nofollow">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta property="og:image" content="@yield('Tgambar')">
+	<meta property="og:title" content="@yield('Tjudul')">
+	<meta property="og:description" content="@yield('Tdesk')">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
@@ -55,7 +62,7 @@
 					</h4>
 					<br>
 					<div class="ui center aligned grid">
-							<form method="post" action="{{ url('/blog') }}" class="ui form">
+							<form method="post" action="{{ url('/') }}" class="ui form">
 								{{ csrf_field() }}
 								<div class="ui icon input" style="max-width: 200px;">
 									<input class="prompt" placeholder="Cari" type="text" name="cari">
@@ -78,7 +85,7 @@
 							    	@foreach($kategoris as $kategori)
 								    	@if($kategori->parent_id == null)
 								    		<li>
-								    			<a href="/blog/kategori/{{ $kategori->slug }}" class="item">{{ $kategori->name }}</a>
+								    			<a href="/kategori/{{ $kategori->slug }}" class="item">{{ $kategori->name }}</a>
 								      		</li>
 								    	@endif
 									@endforeach
@@ -93,7 +100,7 @@
 						  <div class="ui transition hidden">
 								<ul class="ui list" style="margin-left: 30px;">
 									@foreach($tags as $sub)
-										<li><a href="/blog/tag/{{ $sub->slug }}">{{ $sub->name }}</a></li>
+										<li><a href="/tag/{{ $sub->slug }}">{{ $sub->name }}</a></li>
 									@endforeach
 								</ul>
 							</div>
@@ -110,7 +117,7 @@
 						<div class="event">
 						    <div class="content">
 						      	<div class="summary">
-						        	<a href="/blog/{{ $baru->slug }}">{{ $baru->title }}</a>
+						        	<a href="/{{ $baru->slug }}">{{ $baru->title }}</a>
 						      	</div>
 						      	<div class="date" style="margin-top: 3px;">
 						        	<p>{{ date_format($baru->created_at,'h:m:s d-m-Y') }}</p>
@@ -197,7 +204,7 @@
 									        		@foreach($arsipJudul as $Judul)
 									      				@if($Judul->tahun == $arsip->tahun && $Judul->bulan == $Bulan->bulan)
 									        				<li>
-									        					<a href="/blog/{{ $Judul->slug }}" style="margin-left: 3px;">{{ $Judul->title }}</a>
+									        					<a href="/{{ $Judul->slug }}" style="margin-left: 3px;">{{ $Judul->title }}</a>
 									        				</li>
 									      				@endif
 									        		@endforeach

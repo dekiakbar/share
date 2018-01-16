@@ -16,12 +16,12 @@
 	    <div class="ui piled raised segment">
 		    @foreach($kategoris as $kategori)
 		    	@if($post->category_id == $kategori->id)
-		    		<a href="/blog/kategori/{{ $kategori->slug }}" class="ui blue right ribbon label">{{ $kategori->name }}</a>
+		    		<a href="/kategori/{{ $kategori->slug }}" class="ui blue right ribbon label">{{ $kategori->name }}</a>
 		    	@endif
 		    @endforeach
 		    <span>
 		    	<h3 class="ui header">
-				    <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
+				    <a href="/{{ $post->slug }}">{{ $post->title }}</a>
 				    <span class="sub header">{{ date_format($post->created_at,'h:m:s d-m-Y') }} by <a onclick="tampil();">Deki</a></span>
 				</h3>
 			</span>
@@ -32,7 +32,7 @@
 			<div class="ui divider"></div>
 			@foreach($tags as $tag)
 				@if($tag->id == $post->tag_id)
-					<a href="/blog/tag/{{ $tag->slug }}" class="ui mini teal tag label">{{ $tag->name }}</a>
+					<a href="/tag/{{ $tag->slug }}" class="ui mini teal tag label">{{ $tag->name }}</a>
 				@endif
 			@endforeach
 		</div>

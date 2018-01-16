@@ -1,5 +1,10 @@
 @extends('blog.master')
-@section('judul',' | '.$post->title)
+@section('key_meta',$post->meta_keywords)
+@section('isi_meta',$post->meta_description)
+@section('judul',' | '.$post->seo_title)
+@section('Tgambar','storage/'.$post->image)
+@section('Tjudul',$post->title)
+@section('Tdesk',$post->excerpt)
 @section('isi')
 	<div class="ui segment raised piled purple">
 		<div class="ui breadcrumb">
