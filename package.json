@@ -21,9 +21,6 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "graceful-fs": "^4.1.11",
-        "gulp": "^3.9.1",
-        "gulp-cli": "^2.0.0",
-        "minimatch": "^3.0.4"
+        "sass-semantic-ui": "^2.2.12-3"
     }
 }
