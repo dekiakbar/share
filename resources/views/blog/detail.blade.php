@@ -8,7 +8,7 @@
 @section('isi')
 	<div class="ui segment raised piled purple">
 		<div class="ui breadcrumb">
-			<a href="/blog" class="section">Home</a>
+			<a href="/" class="section">Home</a>
 			<div class="divider"> / </div>
 			<div class="active section">{{ $post->title }}</div>
 		</div>
@@ -30,7 +30,7 @@
 		</div>
 		<div class="ui divider"></div>
 		@if($tag->id == $post->tag_id)
-		<a href="/blog/tag/{{ $tag->slug }}" class="ui mini teal tag label">{{ $tag->name }}</a>
+		<a href="/tag/{{ $tag->slug }}" class="ui mini teal tag label">{{ $tag->name }}</a>
 		@endif
 		<div class="ui divider"></div>
 			{!! $post->body !!}

@@ -4,18 +4,23 @@
 -->
 <html>
 <head>
+	<meta name="googlebot" content="index">
+	<meta name="robots" content="index,follow">
+	
 	<title>{!! setting('blog.title') !!}@yield('judul')</title>
-	<meta charset="utf-8">
 	<meta name="copytight" content="dekiakbar.com is developed by Deki Akbar">
 	<meta name="keywords" content="@yield('key_meta')">
 	<meta name="description" content="@yield('isi_meta')">
-	<meta name="robots" content="noindex,nofollow">
+	<meta name="robots" content="index,follow">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta property="og:image" content="@yield('Tgambar')">
 	<meta property="og:title" content="@yield('Tjudul')">
 	<meta property="og:description" content="@yield('Tdesk')">
+	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+	<link rel="alternate" hreflang="id" href="https://ngoprek.dekiakbar.com/" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/highlight/styles/tomorrow-night-bright.css') }}">
 

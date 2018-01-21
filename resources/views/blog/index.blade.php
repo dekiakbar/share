@@ -1,5 +1,5 @@
 @extends('blog.master')
-	
+@section('judul',' | '.setting('site.title'))	
 @section('sayhi')
 	<div class="ui container">
 		<h2 class="ui header center aligned">
@@ -26,7 +26,7 @@
 				</h3>
 			</span>
 			<div class="ui divider"></div>
-			<div style="white-space: nowrap;text-overflow: ellipsis; overflow: hidden;">
+			<div style="white-space: wrap;text-overflow: ellipsis; overflow: hidden;">
 				{!! $post->excerpt !!}
 			</div>
 			<div class="ui divider"></div>

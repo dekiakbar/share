@@ -6,8 +6,10 @@
 -->
 <html>
 	<head>
+	    <link rel="alternate" hreflang="id" href="https://dekiakbar.com/" />
 		<title>{!! setting('site.title') !!}</title>
-		<meta name="robots" content="noindex,nofollow">
+		<meta name="googlebot" content="index">
+		<meta name="robots" content="index,follow">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="description" content="{{ setting('site.about_desc') }}">
@@ -47,7 +49,7 @@
 						<nav>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
-								<li><a href="https://dekiakbar.com">Blog</a></li>
+								<li><a href="https://ngoprek.dekiakbar.com">Blog</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
@@ -60,14 +62,18 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">{!! setting('site.intro_title') !!}</h2>
-								<span class="image main"><img src="storage/{!! setting('site.intro_image') !!}" alt="" /></span>
+								@if(setting('site.intro_image') != null)
+								    <span class="image main"><img src="storage/{!! setting('site.intro_image') !!}" alt="" /></span>
+								@endif
 								<p>{!! setting('site.intro_desc') !!}
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">{!! setting('site.about_title') !!}</h2>
-								<span class="image main"><img src="storage/{!! setting('site.about_Image') !!}" alt="" /></span>
+								@if(setting('site.about_Image') != null)
+								    <span class="image main"><img src="storage/{!! setting('site.about_Image') !!}" alt="" /></span>
+								@endif
 								<p>{!! setting('site.about_desc') !!}</p>
 							</article>
 

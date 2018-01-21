@@ -15,7 +15,7 @@
 //     return view('web.index');
 // });
 
-Route::group(['domain' => 'blog.fakebook.dev'], function(){
+Route::group(['domain' => 'ngoprek.dekiakbar.com'], function(){
 	Route::get('/','Blog@index');
 	Route::get('/{slug}','Blog@detail');
 	Route::get('/kategori/{kategori}','Blog@kategori');
@@ -23,7 +23,7 @@ Route::group(['domain' => 'blog.fakebook.dev'], function(){
 	Route::post('/','Blog@cari');
 });
 
-Route::group(['domain' => 'fakebook.dev'], function(){
+Route::group(['domain' => 'dekiakbar.com'], function(){
   	Route::get('/', function () {
     	return view('web.index');
 	});

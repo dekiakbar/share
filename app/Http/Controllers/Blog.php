@@ -29,7 +29,7 @@ class Blog extends Controller
                       ->select(DB::raw('title,slug,MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
                       ->groupBy('bulan','tahun','title','slug')->get();
 
-    	$bagikan 	   = Share::load('https://dekiakbar.com/blog', setting('blog.quote'))
+    	$bagikan 	   = Share::load('https://ngoprek.dekiakbar.com/', setting('blog.quote'))
                       ->services('facebook','twitter','gplus','linkedin','telegram');
     	$bagikan     = (object) $bagikan;
 
@@ -56,7 +56,7 @@ class Blog extends Controller
                             ->select(DB::raw('title,slug,MONTHNAME(posts.created_at) bulan,YEAR(posts.created_at) tahun'))
                             ->groupBy('bulan','tahun','title','slug')->get();
         		
-        		$bagikan 	  = Share::load('https://dekiakbar.com/blog/kategori/'.$kategori->slug, setting('blog.quote'))
+        		$bagikan 	  = Share::load('https://ngoprek.dekiakbar.com/kategori/'.$kategori->slug, setting('blog.quote'))
                               ->services('facebook','twitter','gplus','linkedin','telegram');
         		$bagikan	  = (object) $bagikan;
     	
@@ -90,7 +90,7 @@ class Blog extends Controller
 
             $kategoris  = kategoris::all();
             $tag        = tag::where('id',$post->tag_id)->firstOrFail();
-            $bagikan    = Share::load('https://dekiakbar.com/blog/'.$post->slug, setting('blog.quote'))
+            $bagikan    = Share::load('https://ngoprek.dekiakbar.com/'.$post->slug, setting('blog.quote'))
                                 ->services('facebook','twitter','gplus','linkedin','telegram');
             $bagikan    = (object) $bagikan;
     
@@ -118,7 +118,7 @@ class Blog extends Controller
             $baru       = posts::latest()->take(3)->get();
             $tags       = tag::all();
             $kategoris  = kategoris::all();
-            $bagikan    = Share::load('https://dekiakbar.com/blog/tag/'.$tag->slug, setting('blog.quote'))
+            $bagikan    = Share::load('https://ngoprek.dekiakbar.com/tag/'.$tag->slug, setting('blog.quote'))
                                 ->services('facebook','twitter','gplus','linkedin','telegram');
             $bagikan    = (object) $bagikan;
     
@@ -134,7 +134,7 @@ class Blog extends Controller
             
             $cari       = $request->input('cari');
 
-            $posts      = posts::select('slug','title','created_at','tag_id','category_id')
+            $posts      = posts::select('excerpt','slug','title','created_at','tag_id','category_id')
                           ->whereHas('kategori', function($query) use($cari) {$query->where('name', 'like', '%'.$cari.'%');})
                           ->orWhereHas('tag', function($query) use($cari) {$query->where('name', 'like', '%'.$cari.'%');})
                           ->orWhere("title", "LIKE","%$cari%")->paginate(3);
@@ -154,7 +154,7 @@ class Blog extends Controller
             $baru       = posts::latest()->take(3)->get();
             $tags       = tag::all();
             $kategoris  = kategoris::all();
-            $bagikan    = Share::load('https://dekiakbar.com/blog', setting('blog.quote'))
+            $bagikan    = Share::load('https://ngoprek.dekiakbar.com/', setting('blog.quote'))
                           ->services('facebook','twitter','gplus','linkedin','telegram');
 
             $bagikan    = (object) $bagikan;
